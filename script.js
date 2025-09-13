@@ -24,7 +24,64 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   // Initialize and set interval
   changeBackground();
-  setInterval(changeBackground, 5000);
+  window.heroCarouselInterval = setInterval(changeBackground, 5000);
+});
+
+// Smart Video Background Loading (Desktop Only)
+document.addEventListener('DOMContentLoaded', function () {
+  const video = document.getElementById('hero-video');
+  const hero = document.getElementById('hero');
+  
+  // Only load video on desktop and if connection is decent
+  function shouldLoadVideo() {
+    // Check if desktop
+    if (window.innerWidth <= 768) return false;
+    
+    // Check connection quality (if available)
+    if ('connection' in navigator) {
+      const connection = navigator.connection;
+      // Don't load on slow connections
+      if (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
+        return false;
+      }
+    }
+    
+    // Check if user prefers reduced motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return false;
+    }
+    
+    return true;
+  }
+  
+  // Load video after page is fully loaded
+  window.addEventListener('load', function() {
+    if (shouldLoadVideo() && video) {
+      // Wait a bit more to ensure everything is ready
+      setTimeout(() => {
+        // Start loading the video
+        video.load();
+        
+        // When video can play, fade it in and pause image carousel
+        video.addEventListener('canplaythrough', function() {
+          video.play().then(() => {
+            video.classList.add('loaded');
+            // Stop the image carousel when video starts
+            clearInterval(window.heroCarouselInterval);
+          }).catch(e => {
+            console.log('Video autoplay failed, keeping image carousel');
+          });
+        });
+        
+        // If video fails to load, keep using images
+        video.addEventListener('error', function() {
+          console.log('Video failed to load, using image carousel');
+          video.style.display = 'none';
+        });
+        
+      }, 2000); // Wait 2 seconds after page load
+    }
+  });
 });
 
 // Floating WhatsApp Button Behavior (Mobile Only)

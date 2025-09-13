@@ -67,6 +67,35 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+}
+
+/* Video background styling */
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.hero-video.loaded {
+  opacity: 1;
+}
+
+/* Hide video on mobile - keep image carousel */
+@media (max-width: 768px) {
+  .hero-video {
+    display: none;
+  }
 }
 #hero::before {
   content: "";
