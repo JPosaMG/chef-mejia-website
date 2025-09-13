@@ -32,54 +32,73 @@ document.addEventListener('DOMContentLoaded', function () {
   const video = document.getElementById('hero-video');
   const hero = document.getElementById('hero');
   
+  console.log('Video element found:', !!video);
+  console.log('Screen width:', window.innerWidth);
+  
   // Only load video on desktop and if connection is decent
   function shouldLoadVideo() {
     // Check if desktop
-    if (window.innerWidth <= 768) return false;
+    if (window.innerWidth <= 768) {
+      console.log('Skipping video: mobile device');
+      return false;
+    }
     
     // Check connection quality (if available)
     if ('connection' in navigator) {
       const connection = navigator.connection;
+      console.log('Connection type:', connection.effectiveType);
       // Don't load on slow connections
       if (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
+        console.log('Skipping video: slow connection');
         return false;
       }
     }
     
     // Check if user prefers reduced motion
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      console.log('Skipping video: reduced motion preference');
       return false;
     }
     
+    console.log('Video should load: all checks passed');
     return true;
   }
   
   // Load video after page is fully loaded
   window.addEventListener('load', function() {
+    console.log('Page fully loaded, checking video conditions...');
+    
     if (shouldLoadVideo() && video) {
+      console.log('Starting video load process...');
       // Wait a bit more to ensure everything is ready
       setTimeout(() => {
+        console.log('Loading video...');
         // Start loading the video
         video.load();
         
         // When video can play, fade it in and pause image carousel
         video.addEventListener('canplaythrough', function() {
+          console.log('Video can play through, attempting to start...');
           video.play().then(() => {
+            console.log('Video playing successfully!');
             video.classList.add('loaded');
             // Stop the image carousel when video starts
             clearInterval(window.heroCarouselInterval);
           }).catch(e => {
-            console.log('Video autoplay failed, keeping image carousel');
+            console.log('Video autoplay failed:', e);
+            console.log('Keeping image carousel');
           });
         });
         
         // If video fails to load, keep using images
-        video.addEventListener('error', function() {
-          console.log('Video failed to load, using image carousel');
+        video.addEventListener('error', function(e) {
+          console.log('Video failed to load:', e);
           video.style.display = 'none';
         });
         
       }, 2000); // Wait 2 seconds after page load
+    } else {
+      console.log('Video conditions not met or video element not found');
     }
   });
 });
