@@ -61,7 +61,7 @@ nav {
 /* Hero */
 #hero {
   height: 100vh;
-  background-size: cover;
+  background-size: 120% auto;
   background-repeat: no-repeat;
   background-attachment: fixed;
   position: relative;
