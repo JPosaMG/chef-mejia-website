@@ -26,3 +26,37 @@ document.addEventListener('DOMContentLoaded', function () {
   changeBackground();
   setInterval(changeBackground, 5000);
 });
+
+// Floating WhatsApp Button Behavior (Mobile Only)
+document.addEventListener('DOMContentLoaded', function () {
+  const floatingButton = document.querySelector('.floating-whatsapp');
+  
+  if (floatingButton && window.innerWidth <= 768) {
+    let isScrolling = false;
+    
+    // Add smooth scroll behavior
+    window.addEventListener('scroll', function() {
+      if (!isScrolling) {
+        window.requestAnimationFrame(function() {
+          // Add a subtle bounce effect when scrolling
+          floatingButton.style.transform = 'scale(0.95)';
+          
+          setTimeout(() => {
+            floatingButton.style.transform = 'scale(1)';
+          }, 150);
+          
+          isScrolling = false;
+        });
+        isScrolling = true;
+      }
+    });
+    
+    // Add pulse animation periodically to draw attention
+    setInterval(() => {
+      floatingButton.style.animation = 'pulse 1s ease-in-out';
+      setTimeout(() => {
+        floatingButton.style.animation = '';
+      }, 1000);
+    }, 10000); // Pulse every 10 seconds
+  }
+});

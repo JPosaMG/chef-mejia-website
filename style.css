@@ -218,6 +218,55 @@ footer a:hover {
   text-decoration: underline;
 }
 
+/* Floating WhatsApp Button (Mobile Only) */
+.floating-whatsapp {
+  display: none; /* Hidden by default */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: #CDA34F;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 24px;
+  box-shadow: 0 4px 12px rgba(205, 163, 79, 0.4);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floating-whatsapp:hover {
+  background: #b6913a;
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(205, 163, 79, 0.6);
+}
+
+.floating-whatsapp svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* Pulse animation for WhatsApp button */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 4px 12px rgba(205, 163, 79, 0.4);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 6px 20px rgba(205, 163, 79, 0.8);
+    transform: scale(1.05);
+  }
+  100% {
+    box-shadow: 0 4px 12px rgba(205, 163, 79, 0.4);
+    transform: scale(1);
+  }
+}
+
 /* Layout for email and phone inputs side by side in the contact form */
 .form-row {
   display: flex;
@@ -244,5 +293,10 @@ footer a:hover {
   }
   .nav-menu {
     display: none; /* hide on small screens; further improvements could add mobile menu */
+  }
+  
+  /* Show floating WhatsApp button on mobile */
+  .floating-whatsapp {
+    display: flex !important;
   }
 }
