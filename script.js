@@ -5,9 +5,9 @@ document.addEventListener('DOMContentLoaded', function () {
   // List of images with their optimal positioning to showcase the food
   const images = [
     { src: 'hero.jpg', position: 'center center' },         // primary greeting image
-    { src: 'fullsizer.jpg', position: 'center 30%' },       // focus closer on the fish/main dish
-    { src: 'img_2820.jpg', position: 'center 35%' },        // zoom in on the steak
-    { src: 'img_2167.jpg', position: 'center 25%' }         // focus more on the salad ingredients
+    { src: 'fullsizer.jpg', position: 'center 45%' },       // slightly up to focus on the dish
+    { src: 'img_2820.jpg', position: 'center 50%' },        // slight adjustment for the steak
+    { src: 'img_2167.jpg', position: 'center 40%' }         // slight up for salad focus
   ];
   let current = 0;
   

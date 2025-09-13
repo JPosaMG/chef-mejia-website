@@ -61,9 +61,8 @@ nav {
 /* Hero */
 #hero {
   height: 100vh;
-  background-size: 120% auto;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   position: relative;
   display: flex;
   align-items: center;
