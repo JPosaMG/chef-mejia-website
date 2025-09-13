@@ -1,90 +1,102 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Chef Jose Mejia – Fine Catering & Events</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<style>
-body {margin:0; font-family:'Helvetica Neue', Arial, sans-serif; color:#333; background-color:#fff;}
-nav {position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(255,255,255,0.9); padding:10px 20px; box-shadow:0 2px 6px rgba(0,0,0,0.1);}
-nav ul {list-style:none; margin:0; padding:0; display:flex; justify-content:center;}
-nav li {margin:0 15px;}
-nav a {text-decoration:none; color:#333; font-weight:bold;}
-header {height:90vh; position:relative; background:url('https://source.unsplash.com/1600x900/?luxury-catering,celebration') center/cover no-repeat;}
-header::after {content:''; position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.5);}
-header .hero-content {position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:#fff; text-align:center;}
-header h1 {font-size:3.5em; margin:0;}
-header p {font-size:1.2em; margin-top:10px; max-width:600px;}
-section {padding:80px 20px;}
-.section-title {text-align:center; margin-bottom:40px; font-size:2em; color:#333;}
-.about {max-width:1000px; margin:0 auto;}
-.services {display:flex; flex-wrap:wrap; justify-content:center; gap:20px;}
-.service-item {flex:1 1 280px; background:#fafafa; padding:25px; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.05);} 
-.service-item h3 {margin-top:0; color:#C59D5F;}
-.gallery-grid {display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:10px;}
-.gallery-grid img {width:100%; height:200px; object-fit:cover; border-radius:8px;}
-.contact-form {max-width:600px; margin:0 auto;}
-.contact-form input, .contact-form textarea {width:100%; padding:12px; margin-bottom:10px; border:1px solid #ccc; border-radius:4px;}
-.contact-form button {background:#C59D5F; color:#fff; padding:12px 30px; border:none; border-radius:4px; cursor:pointer; font-size:1em;}
-footer {background:#f5f5f5; text-align:center; padding:20px; color:#777;}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chef Jose Mejia – Exquisite Catering & Events</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav>
-  <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-<header>
-  <div class="hero-content">
-    <h1>Exquisite Catering & Bespoke Events</h1>
-    <p>Experience the artistry of Chef Jose Mejia – where every dish tells a story.</p>
-  </div>
-</header>
-<section id="about" class="about">
-  <h2 class="section-title">About Chef Mejia</h2>
-  <p>Chef Jose Mejia brings over three decades of culinary expertise to your table. Trained at the prestigious Le Basque catering house in Florida, he has delighted presidents and celebrities alike. Now leading Floratorium Café, Chef Mejia crafts memorable dining experiences that blend innovation with tradition.</p>
-</section>
-<section id="services">
-  <h2 class="section-title">Services</h2>
-  <div class="services">
-    <div class="service-item">
-      <h3>Luxury Catering</h3>
-      <p>Full‑service catering for weddings, galas, and corporate events. Tailored menus, professional service, and impeccable presentation.</p>
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="container nav-container">
+      <div class="logo">Chef&nbsp;Mejia</div>
+      <ul class="nav-menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
-    <div class="service-item">
-      <h3>Private Chef</h3>
-      <p>Intimate multi‑course dinners in your own home or yacht. Perfect for birthdays, anniversaries, and exclusive gatherings.</p>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="hero">
+    <div class="hero-content">
+      <h1>Experience Culinary Excellence</h1>
+      <p>Elevate your event with bespoke catering by Chef Jose Mejia</p>
+      <a href="#contact" class="btn-primary">Book Your Event</a>
     </div>
-    <div class="service-item">
-      <h3>Culinary Consulting</h3>
-      <p>Menu development and culinary direction for restaurants, hotels, and hospitality projects.</p>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2>About Chef Mejia</h2>
+      <p>With over three decades of culinary experience, Chef Jose Mejia transforms ingredients into memorable dining experiences. From honing his craft at the prestigious Le Basque Catering in Florida to delighting the palates of icons such as Shakira and President Barack Obama, his talent leaves a lasting impression. Now the executive chef of Floratorium Café, Chef Mejia continues to craft exquisite dishes that captivate discerning guests and elevate events of every scale.</p>
     </div>
-  </d  iv>
-</section>
-<section id="gallery">
-  <h2 class="section-title">Gallery</h2>
-  <div class="gallery-grid">
-    <img src="https://source.unsplash.com/800x600/?gourmet,art" alt="Gourmet dish">
-    <img src="https://source.unsplash.com/800x600/?dessert,plated" alt="Dessert">
-    <img src="https://source.unsplash.com/800x600/?catering,event" alt="Event catering">
-    <img src="https://source.unsplash.com/800x600/?luxury,dining" alt="Luxury dining">
-  </div>
-</section>
-<section id="contact">
-  <h2 class="section-title">Contact</h2>
-  <form class="contact-form">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" rows="5" placeholder="Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
-<footer>
-  &copy; 2025 Chef Jose Mejia – All rights reserved.
-</footer>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="section bg-light">
+    <div class="container">
+      <h2>Our Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Catering & Event Planning</h3>
+          <p>Complete catering and production services for weddings, corporate functions and social celebrations. We curate menus and ambience tailored to your vision.</p>
+        </div>
+        <div class="service-card">
+          <h3>Private Chef & Dinners</h3>
+          <p>Bring the restaurant experience home. Chef Mejia designs multi‑course menus for intimate dinner parties and special occasions, cooked and served in your space.</p>
+        </div>
+        <div class="service-card">
+          <h3>Consulting & Menus</h3>
+          <p>Hospitality consulting, menu creation and team training for restaurants and culinary ventures seeking to elevate their offerings with expert guidance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="section">
+    <div class="container">
+      <h2>Gallery</h2>
+      <div class="gallery-grid">
+        <img src="images/fullsizer.jpg" alt="Gourmet dish 1">
+        <img src="images/img_2167.jpg" alt="Gourmet dish 2">
+        <img src="images/img_2820.jpg" alt="Gourmet dish 3">
+        <img src="images/img_2823.jpg" alt="Gourmet dessert">
+        <img src="images/img_6525.jpg" alt="Appetizer bites">
+        <img src="images/img_6531.jpg" alt="Elegant plating">
+        <img src="images/img_6846.jpg" alt="Fish presentation">
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section bg-light">
+    <div class="container contact-container">
+      <h2>Contact Us</h2>
+      <p>Ready to craft an unforgettable culinary experience? Get in touch with Chef Mejia and our team to start planning your event.</p>
+      <form action="mailto:info@floratoriumcafe.com" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Tell us about your event" rows="5" required></textarea>
+        <button type="submit" class="btn-primary">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-container">
+      <p>&copy; 2025 Chef Jose Mejia. All rights reserved.</p>
+      <p>Follow us on <a href="https://www.instagram.com/josemejiachef" target="_blank" rel="noopener">Instagram</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
