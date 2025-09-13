@@ -43,64 +43,48 @@ document.addEventListener('DOMContentLoaded', function () {
       return false;
     }
     
-    // Check connection quality (if available)
-    if ('connection' in navigator) {
-      const connection = navigator.connection;
-      console.log('Connection type:', connection.effectiveType);
-      // Don't load on slow connections
-      if (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
-        console.log('Skipping video: slow connection');
-        return false;
-      }
-    }
-    
-    // Check if user prefers reduced motion
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      console.log('Skipping video: reduced motion preference');
-      return false;
-    }
-    
-    console.log('Video should load: all checks passed');
+    console.log('Video should load: desktop detected');
     return true;
   }
   
-  // Load video after page is fully loaded
-  window.addEventListener('load', function() {
-    console.log('Page fully loaded, checking video conditions...');
+  // Simpler approach - try to load video immediately if on desktop
+  if (shouldLoadVideo() && video) {
+    console.log('Starting video setup...');
     
-    if (shouldLoadVideo() && video) {
-      console.log('Starting video load process...');
-      // Wait a bit more to ensure everything is ready
-      setTimeout(() => {
-        console.log('Loading video...');
-        // Start loading the video
-        video.load();
-        
-        // When video can play, fade it in and pause image carousel
-        video.addEventListener('canplaythrough', function() {
-          console.log('Video can play through, attempting to start...');
-          video.play().then(() => {
-            console.log('Video playing successfully!');
-            video.classList.add('loaded');
-            // Stop the image carousel when video starts
-            clearInterval(window.heroCarouselInterval);
-          }).catch(e => {
-            console.log('Video autoplay failed:', e);
-            console.log('Keeping image carousel');
-          });
-        });
-        
-        // If video fails to load, keep using images
-        video.addEventListener('error', function(e) {
-          console.log('Video failed to load:', e);
-          video.style.display = 'none';
-        });
-        
-      }, 2000); // Wait 2 seconds after page load
-    } else {
-      console.log('Video conditions not met or video element not found');
-    }
-  });
+    // Set up event listeners first
+    video.addEventListener('loadeddata', function() {
+      console.log('Video data loaded');
+    });
+    
+    video.addEventListener('canplay', function() {
+      console.log('Video can start playing');
+      video.play().then(() => {
+        console.log('Video playing successfully!');
+        video.classList.add('loaded');
+        // Stop the image carousel when video starts
+        if (window.heroCarouselInterval) {
+          clearInterval(window.heroCarouselInterval);
+          console.log('Image carousel stopped');
+        }
+      }).catch(e => {
+        console.log('Video autoplay failed:', e);
+      });
+    });
+    
+    video.addEventListener('error', function(e) {
+      console.log('Video error:', e);
+      video.style.display = 'none';
+    });
+    
+    // Start loading the video
+    setTimeout(() => {
+      console.log('Loading video...');
+      video.load();
+    }, 1000); // Reduced wait time
+    
+  } else {
+    console.log('Video conditions not met or video element not found');
+  }
 });
 
 // Floating WhatsApp Button Behavior (Mobile Only)
