@@ -82,12 +82,20 @@
     <div class="container contact-container">
       <h2>Contact Us</h2>
       <p>Ready to craft an unforgettable culinary experience? Get in touch with Chef Mejia and our team to start planning your event.</p>
-      <form action="mailto:info@floratoriumcafe.com" method="post" enctype="text/plain">
+      <form action="mailto:Flavorsbyjosemejia@gmail.com" method="post" enctype="text/plain">
         <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
+        <!-- Email and phone fields are grouped in a row for better layout -->
+        <div class="form-row">
+          <input type="email" name="email" placeholder="Your Email" required>
+          <input type="tel" name="phone" placeholder="Your Phone Number" required>
+        </div>
         <textarea name="message" placeholder="Tell us about your event" rows="5" required></textarea>
         <button type="submit" class="btn-primary">Send Message</button>
       </form>
+      <!-- WhatsApp contact option -->
+      <div style="margin-top: 1rem;">
+        <a href="https://wa.me/13053331964" class="btn-primary" target="_blank" rel="noopener">Chat on WhatsApp</a>
+      </div>
     </div>
   </section>
 
